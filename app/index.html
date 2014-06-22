@@ -25,16 +25,27 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-     
-      <div class="uploader-content">
+<header>
+  <h1 class="header-border">View</h1>
+</header>
+<a href="#openModal">Open Modal</a>
 
-        <input type='file' class="photo-preview"/>
+<div id="openModal" class="modalDialog">
+  <div>
+    <a href="#close" title="Close" class="close">X</a>
+    <input type='file' class="file-uploader-button"/>
         <img id="target" src="" alt="" />
 
-        <input type="text" class="caption" placeholder="Caption">
+        <!-- <canvas id="my-picasso"></canvas> -->
+        <input type="text" class="caption" placeholder="Enter Caption">
 
-        <button class="preview-button">Preview</button>
+       <!--  <button class="preview-button">Preview</button> -->
         <button class="save-button">Save</button>
+  </div>
+</div>
+
+      <div class="uploader-content">
+
       </div>
       <div class="photo-container"></div>
 
@@ -52,7 +63,7 @@
 
          <script type="text/template" class="photo-view-template">
             <img src="<%= photoRef.url() %>">
-            <span>"<%= caption %>"</span>
+            
         </script>
 
         <!-- build:js scripts/vendor.js -->
@@ -60,6 +71,7 @@
         <script src="../bower_components/jquery/dist/jquery.js"></script>
         <script src="../bower_components/underscore/underscore.js"></script>
         <script src="../bower_components/backbone/backbone.js"></script>
+        <script src="../bower_components/fabric/dist/fabric.min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 

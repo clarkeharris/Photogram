@@ -9,6 +9,10 @@ body {
   font-size: 62.5%;
 }
 
+  img {
+    max-width: 100%;
+  }
+
 h1 {
   font-size: 4.8em;
   font-weight: 700;
@@ -36,33 +40,63 @@ button {
     }
 }
 
-.uploader-content {
-  width: 75%;
-  margin: 0 auto;
-  padding: 50px;
+header {
+  width: 100%;
+  margin: 35px 0 25px 0;
+  text-align: center;
+
+  .header-border {
+    margin: 0 auto;
+    width: 130px;
+    border: 6px solid #333;
+  }
+}
 
   input {
     border: none;
   }
 
-.photo-preview::-webkit-file-upload-button {
-  visibility: hidden;
-}
-.photo-preview::before {
-  content: 'Choose a File';
-  display: inline-block;
-  border: 1px solid #333;
-  border-radius: 3px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-}
+  .file-uploader-button {
+    color: transparent;
+  }
 
+  .file-uploader-button::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+
+  .file-uploader-button::before {
+    content: 'Select File';
+    color: black;
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+  }
+
+  .file-uploader-button:hover::before {
+    border-color: #C5B07A;
+    color: #C5B07A;
+  }
+
+  .file-uploader-button:active {
+    outline: 0;
+  }
+
+  .file-uploader-button:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+  }
+
+  .caption {
+    border-bottom: solid 1px #333;
+  }
 
   .preview-button {
-    display: block;
     padding: 5px 8px;
     border: 1px solid #333;
     border-radius: 3px;
@@ -71,6 +105,8 @@ button {
   }
 
   .save-button {
+    display: block;
+    margin-top: 25px;
     background-color: #333;
     padding: 7px 8px;
     font-size: 1.4em;
@@ -78,51 +114,66 @@ button {
     border: none;
     color: #fff;
   }
+
+// Modal Window
+
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
 }
 
-.header-content  {
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 15%;
+.modalDialog:target {
+  opacity:1;
+  pointer-events: auto;
+}
 
-  .login-sign-up {
-    width: 100%;
-    
-    .login {
-      width: 50%; 
-      display: inline-block;
-      // border-right: 1px solid #333;
+.modalDialog > div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 50px 30px;
+  border-radius: 4px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+}
 
-    .login-button {
-      display: block;
-      padding: 7px 20px;
-      border: 1px solid #333;
-      border-radius: 3px;
-      background-color: #fff;
-      font-size: 1.4em;
+.close {
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
 
-        &:hover {
-        background: #333;
-        color: #fff;
-        }
-      }
-    }
+.close:hover { background: #C5B07A; }
 
-    .sign-up {
-      display: inline;
-      width: 50%;
-      margin: 0 auto;
+.photo-view {
+  float: left;
+  margin-bottom: 0;
 
-      .sign-up-button {
-        background-color: #333;
-        padding: 7px 20px;
-        font-size: 1.4em;
-        border-radius: 3px;
-        border: none;
-        color: #fff;
-        
-      }
-    }
+  img {
+    display: block;
   }
 }
 

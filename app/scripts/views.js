@@ -29,7 +29,7 @@ function readURL(input) {
     }
 }
 
-$(".photo-preview").change(function(){
+$(".file-uploader-button").change(function(){
     readURL(this);
 	});
 
@@ -37,7 +37,7 @@ $(".photo-preview").change(function(){
 
 $('.save-button').click(function(){
 
-	var fileUploadControl = $(".photo-preview")[0];
+	var fileUploadControl = $(".file-uploader-button")[0];
 	if (fileUploadControl.files.length > 0) {
 	  var file = fileUploadControl.files[0];
 	  var name = "photo.jpg";
@@ -90,22 +90,3 @@ var PhotoView = Parse.View.extend ({
 		return this;
 	}
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
